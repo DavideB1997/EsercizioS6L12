@@ -1,0 +1,74 @@
+﻿
+@model EsercizioS6L12.Models.Privato
+
+@{
+    ViewBag.Title = "Add a new Privato";
+}
+
+
+@{
+
+
+    using (Html.BeginForm("AddUser", "Form", FormMethod.Get))
+    {
+        <div>
+            <button name="UserType" value="Privato">Privato</button>
+            <button name="UserType" value="Azienza">Azienda</button>
+        </div>
+    }
+
+
+    if (ViewBag.isValid != null)
+    {
+        @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" })
+    }
+
+
+
+
+    if ((string)ViewBag.user == "Privato")
+    {
+        using (Html.BeginForm("AddPrivato", "Form", FormMethod.Post))
+        {
+            <label class="form-label" for="Nome">Nome</label>
+            <input class="form-control" type="text" id="Nome" name="Nome">
+            <label class="form-label" for="Cognome">Cognome</label>
+            <input class="form-control" type="text" id="Cognome" name="Cognome">
+            <label class="form-label" for="Citta">Citta</label>
+            <input class="form-control" type="text" id="Citta" name="Citta">
+            <label class="form-label" for="Cap">Cap</label>
+            <input class="form-control" type="text" id="Cap" name="Cap">
+            <label class="form-label" for="Indirizzo">Indirizzo</label>
+            <input class="form-control" type="text" id="Indirizzo" name="Indirizzo">
+            <label class="form-label" for="CF">CF</label>
+            <input class="form-control" type="text" id="CF" name="CF">
+
+            <button type="submit" class="btn btn-primary">Invia</button>
+        }
+
+
+
+    }
+    else
+    {
+        using (Html.BeginForm("AddAzienda", "Form", FormMethod.Post, new { @class = "mt-5" }))
+        {
+            <label class="form-label" for="PIVA">PIVA</label>
+            <input class="form-control" type="text" id="PIVA" name="PIVA">
+            <label class="form-label" for="Citta">Citta</label>
+            <input class="form-control" type="text" id="Citta" name="Citta">
+            <label class="form-label" for="Cap">Cap</label>
+            <input class="form-control" type="text" id="Cap" name="Cap">
+            <label class="form-label" for="Indirizzo">Indirizzo</label>
+            <input class="form-control" type="text" id="Indirizzo" name="Indirizzo">
+            <label class="form-label" for="Nome">Nome</label>
+            <input class="form-control" type="text" id="Nome" name="Nome">
+
+            <button type="submit" class="btn btn-primary">Invia</button>
+        }
+
+    }
+
+
+
+}
